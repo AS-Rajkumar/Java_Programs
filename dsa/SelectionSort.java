@@ -1,5 +1,3 @@
-package dsa;
-
 import java.util.Scanner;
 
 /*better then bubble sort in terms of swapping but not efficient
@@ -107,7 +105,7 @@ public class SelectionSort {
 						 //must be i so we assume first element is smallest at the start 
 			
 			//Inner loop for the traversal of the loop
-			for(int j=i+1; j<size-1; j++)
+			for(int j=i+1; j<size; j++)
 			{
 				//condition to find the smallest value form the unsorted array
 				if(nums[minIndex] > nums[j])

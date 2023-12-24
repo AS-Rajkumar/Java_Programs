@@ -1,5 +1,3 @@
-package dsa;
-
 import java.util.*;
 /*
  * not efficient but simple to understand

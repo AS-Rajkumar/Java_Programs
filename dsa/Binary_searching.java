@@ -1,5 +1,3 @@
-package dsa;
-
 public class Binary_searching {
 
 	public static void main(String[] args) {
