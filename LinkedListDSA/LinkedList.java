@@ -1,6 +1,6 @@
 public class LinkedList {
 	
-	Node head;
+	public Node head;
 	int length;
 
 	public LinkedList()
@@ -17,6 +17,78 @@ public class LinkedList {
 	public int getHead()
 	{
 		return head.getData();
+	}
+
+	public Node mergeSort(Node headNode)
+	{
+		if(headNode == null || headNode.getNextNode() == null)
+		{
+			return headNode;
+		}
+
+		Node middle = getMiddle(headNode);
+		Node nextOfMiddle = middle.getNextNode();
+
+		middle.setNextNode(null);
+
+		Node left = mergeSort(headNode);
+
+		Node right = mergeSort(nextOfMiddle);
+		
+		Node SortedList = toSort(left, right);
+		return SortedList;
+
+				
+	}
+
+	public Node getMiddle(Node headNode)
+	{
+		if(headNode == null )
+			return headNode;
+
+		Node slow = headNode;
+		Node fast = headNode;
+		
+		while(fast.getNextNode() != null && fast.getNextNode().getNextNode() != null)
+		{
+			
+			slow = slow.getNextNode();
+			fast = fast.getNextNode().getNextNode();
+
+		}
+
+		return slow;
+	}
+
+	public Node toSort(Node left, Node right)
+	{
+		Node result;
+
+		if(left == null)
+
+			return right;
+
+		else if(right == null)
+		
+			return left;
+		
+		else
+		{
+			if(left.getData() < right.getData())
+			{
+				result = left;
+				result.setNextNode(toSort(left.getNextNode(), right));
+			}
+			
+			else
+			{
+				result = right;
+				result.setNextNode(toSort(left, right.getNextNode()));
+			}
+		}	
+			return result;
+				 
+		
 	}
 
 	public Node lastNode()

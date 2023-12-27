@@ -33,7 +33,8 @@ public class MainProgram {
 		System.out.println("press 5 --> To remove element in the linkedlist");
 		System.out.println("press 6 --> To show the Linkedlist");
 		System.out.println("press 7 --> To get the length of the LinkedList");
-		System.out.println("Press 8 --> To exit");
+		System.out.println("Press 8 --> To sort the given linkedlist");
+		System.out.println("Press 9 --> To exit");
 
 		System.out.println("(Note: In this program by default in option 1 elements are add to the tail of the linkedlist)");
 
@@ -42,17 +43,12 @@ public class MainProgram {
 		System.out.print("Enter your choice:");
 		userChoice = scan.nextInt();
 
-		if(userChoice == 8)
-		{
-			return true;
-		}
-
 		switch (userChoice)
 		{
 				
 			case 1:
 
-				System.out.println("Enter the Initial size of the array:");
+				System.out.println("Enter the size of the array:");
 				listsize = scan.nextInt();
 				
 				System.out.println("Enter the elements of the list");
@@ -111,6 +107,15 @@ public class MainProgram {
 			case 7:
 				System.out.println("Length of ths list:" + list.getLength());
 				break;
+
+			case 8:
+				list.head = list.mergeSort(list.head);
+				list.printList();
+				break;
+			
+			case 9:
+				System.out.println("------------------!!Exit the Program!!-----------------");
+				return true;
 
 			default:
 				System.out.println("Invalid Option");
